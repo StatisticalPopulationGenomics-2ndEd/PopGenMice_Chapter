@@ -7,7 +7,7 @@ To reproduce mapping against the reference `GRCm39` you would need the following
 
 The following genome data was used:
 
-Mus musculus domesticus (GRCm39):
+_Mus musculus domesticus_ (GRCm39):
 
 https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M33/GRCm39.primary_assembly.genome.fa.gz
 
