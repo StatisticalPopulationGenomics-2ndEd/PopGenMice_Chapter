@@ -1,0 +1,2 @@
+for file in *.sorted;do /opt/gatk/gatk-4.6.0.0/gatk BaseRecalibrator -I $file -R /data/references/gencode.vM33/GRCm39.primary_assembly.genome.fa --known-sites mgp_REL2021_snps.chr_names.vcf.gz -O $file".BaseRecalibrator";done
+for file in *.sorted;do /opt/gatk/gatk-4.6.0.0/gatk ApplyBQSR -I $file -R /data/references/gencode.vM33/GRCm39.primary_assembly.genome.fa --bqsr-recal-file $file".BaseRecalibrator" -O $file".BQSR.bam";done
