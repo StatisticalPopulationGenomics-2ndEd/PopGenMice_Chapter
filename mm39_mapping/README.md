@@ -4,6 +4,7 @@ To reproduce mapping against the reference `GRCm39` you would need the following
 - samtools (version 1.21) (https://github.com/samtools/samtools)
 - samblaster (version 0.1.26) (https://github.com/GregoryFaust/samblaster)
 - GATK (version 4.6.0.0) (https://github.com/broadinstitute/gatk/releases)
+- bcftools (version 1.21) (https://github.com/samtools/bcftools)
 
 The following genome data was used:
 
