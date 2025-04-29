@@ -102,6 +102,16 @@ cds.GRCr8.genepos$gene.chr <- paste0("GRCr8:", cds.GRCr8.genepos$gene.chr)
 write.table(cds.GRCr8.genepos[,c(2,3,4)], sep="\t", col.names=FALSE, row.names=FALSE, quote=FALSE, file="GRCr8.primary_cds.bed")
 ```
 
+```
+cut -f2,3 GRCm39.chromosomes.txt > GRCm39.chromosomes.bed
+/opt/bedtools2/bin/bedtools makewindows -g GRCm39.chromosomes.bed -w 100000 | awk '{print "GRCm39:"$0}' > GRCm39.100kbp.bins.txt
+/opt/bedtools2/bin/bedtools intersect -a GRCm39.100kbp.bins.txt -b GRCm39.primary_cds.bed -c > GRCm39.primary_cds.w100kbp.bed
+
+cut -f2,3 GRCr8.chromosomes.txt > GRCr8.chromosomes.bed
+/opt/bedtools2/bin/bedtools makewindows -g GRCr8.chromosomes.bed -w 100000 | awk '{print "GRCr8:"$0}' > GRCr8.100kbp.bins.txt
+/opt/bedtools2/bin/bedtools intersect -a GRCr8.100kbp.bins.txt -b GRCr8.primary_cds.bed -c > GRCr8.primary_cds.w100kbp.bed
+```
+
 5. get repeat density data
 
 RepeatMasker data from genomes (GRCm39 and GRCr8) are available here:
