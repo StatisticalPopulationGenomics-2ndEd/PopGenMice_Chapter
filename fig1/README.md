@@ -6,6 +6,7 @@ To reproduce figure 1 you would need the following external software:
 - NCBI/RMBLAST (version 2.14.1+)
 - Dfam (version 3.8)
 - R (version 4.4.0+) (https://cran.r-project.org/)
+- biopython (version 1.8.5) (https://pypi.org/project/biopython/)
 
 The following R packages are needed:
 
