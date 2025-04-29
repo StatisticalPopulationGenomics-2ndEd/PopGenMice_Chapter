@@ -76,6 +76,7 @@ Rscript mashmap2circos.r -m $MASHMAP_PATH \
 4. integrate gene density, repeat density and GC-content
 
 ```
-
+python fasta2GCwindow.py -i GRCm39.fasta -o GRCm39.gc_100kbp.out -w 100000 -j 100000
+python fasta2GCwindow.py -i GRCr8.fasta -o GRCr8.gc_100kbp.out -w 100000 -j 100000
 ```
 
