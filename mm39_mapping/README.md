@@ -5,5 +5,10 @@ To reproduce mapping against the reference `GRCm39` you would need the following
 - samblaster (version 0.1.26) (https://github.com/GregoryFaust/samblaster)
 - 
 
-The scripts in this directory are examples scripts for one individual highlighting the commands for each step, the same parameter (if not inidcated) have been applied to all individuals as given in the `samples.tsv` file.
+The following genome data was used:
 
+Mus musculus domesticus (GRCm39):
+
+https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M33/GRCm39.primary_assembly.genome.fa.gz
+
+The scripts in this directory are examples scripts for one individual highlighting the commands for each step, the same parameter (if not inidcated otherwise) have been applied to all individuals which are given in the `samples.tsv` file.
