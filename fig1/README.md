@@ -78,7 +78,28 @@ Rscript mashmap2circos.r -m $MASHMAP_PATH \
 4. get gene density data (in R)
 
 ```
+library(Biostrings)
+library(CRBHits)
 
+#GRCm39
+cds.GRCm39 <- Biostrings::readDNAStringSet("GCF_000001635.27_GRCm39_cds_from_genomic.fna.gz")
+cds.GRCm39.longest <- CRBHits::isoform2longest(cds.GRCm39, "NCBI")
+cds.GRCm39.genepos <- CRBHits::cds2genepos(cds.GRCm39.longest)
+cds.GRCm39.genepos <- cds.GRCm39.genepos[grep("NC_",cds.GRCm39.genepos$gene.chr), ]
+GRCm39.chromsomes <- read.table("GRCm39.chromosomes.txt")
+cds.GRCm39.genepos$gene.chr <- stringi::stri_replace_all_regex(cds.GRCm39.genepos$gene.chr, pattern=GRCm39.chromsomes$V1, replacement=GRCm39.chromsomes$V2, vectorise_all=FALSE)
+cds.GRCm39.genepos$gene.chr <- paste0("GRCm39:", cds.GRCm39.genepos$gene.chr)
+write.table(cds.GRCm39.genepos[,c(2,3,4)], sep="\t", col.names=FALSE, row.names=FALSE, quote=FALSE, file="GRCm39.primary_cds.bed")
+
+#GRCr8
+cds.GRCr8 <- readDNAStringSet("GCF_036323735.1_GRCr8_cds_from_genomic.fna.gz")
+cds.GRCr8.longest <- isoform2longest(cds.GRCr8, "NCBI")
+cds.GRCr8.genepos <- cds2genepos(cds.GRCr8.longest)
+cds.GRCr8.genepos <- cds.GRCr8.genepos[grep("NC_",cds.GRCr8.genepos$gene.chr), ]
+GRCr8.chromsomes <- read.table("GRCr8.chromosomes.txt")
+cds.GRCr8.genepos$gene.chr <- stringi::stri_replace_all_regex(cds.GRCr8.genepos$gene.chr, pattern=GRCr8.chromsomes$V1, replacement=GRCr8.chromsomes$V2, vectorise_all=FALSE)
+cds.GRCr8.genepos$gene.chr <- paste0("GRCr8:", cds.GRCr8.genepos$gene.chr)
+write.table(cds.GRCr8.genepos[,c(2,3,4)], sep="\t", col.names=FALSE, row.names=FALSE, quote=FALSE, file="GRCr8.primary_cds.bed")
 ```
 
 5. get repeat density data
