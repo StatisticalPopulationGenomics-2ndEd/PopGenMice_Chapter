@@ -116,9 +116,17 @@ cut -f2,3 GRCr8.chromosomes.txt > GRCr8.chromosomes.bed
 
 RepeatMasker data from genomes (GRCm39 and GRCr8) are available here:
 
-edmond-link
+edmond-link here
 
+```
+sort -k1,1 -k4,4n -k5,5n GRCm39.repeatmasker.out.gff > GRCm39.repeatmasker.out.sorted.gff
+/opt/bedtools2/bin/bedtools merge -i GRCm39.repeatmasker.out.sorted.gff > GRCm39.repeatmasker.out.sorted.gff.merged
+/opt/bedtools2/bin/bedtools intersect -a GRCm39.100kbp.bins.txt -b GRCm39.repeatmasker.out.sorted.gff.merged -wo > GRCm39.repeatmasker.w100kbp.repeats
 
+sort -k1,1 -k4,4n -k5,5n GRCr8.repeatmasker.out.gff > GRCr8.repeatmasker.out.sorted.gff
+/opt/bedtools2/bin/bedtools merge -i GRCr8.repeatmasker.out.sorted.gff > GRCr8.repeatmasker.out.sorted.gff.merged
+/opt/bedtools2/bin/bedtools intersect -a GRCr8.100kbp.bins.txt -b GRCr8.repeatmasker.out.sorted.gff.merged -wo > GRCr8.repeatmasker.w100kbp.repeats
+```
 
 6. get GC-content
 
