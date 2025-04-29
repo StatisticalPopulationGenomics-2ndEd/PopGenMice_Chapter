@@ -102,6 +102,8 @@ cds.GRCr8.genepos$gene.chr <- paste0("GRCr8:", cds.GRCr8.genepos$gene.chr)
 write.table(cds.GRCr8.genepos[,c(2,3,4)], sep="\t", col.names=FALSE, row.names=FALSE, quote=FALSE, file="GRCr8.primary_cds.bed")
 ```
 
+get overlap and count genes per 100kbp window
+
 ```
 cut -f2,3 GRCm39.chromosomes.txt > GRCm39.chromosomes.bed
 /opt/bedtools2/bin/bedtools makewindows -g GRCm39.chromosomes.bed -w 100000 | awk '{print "GRCm39:"$0}' > GRCm39.100kbp.bins.txt
@@ -118,6 +120,8 @@ RepeatMasker data from genomes (GRCm39 and GRCr8) are available here:
 
 edmond-link here
 
+sort and merge overlapping repeat regions per 100kbp window
+
 ```
 sort -k1,1 -k4,4n -k5,5n GRCm39.repeatmasker.out.gff > GRCm39.repeatmasker.out.sorted.gff
 /opt/bedtools2/bin/bedtools merge -i GRCm39.repeatmasker.out.sorted.gff > GRCm39.repeatmasker.out.sorted.gff.merged
@@ -129,6 +133,8 @@ sort -k1,1 -k4,4n -k5,5n GRCr8.repeatmasker.out.gff > GRCr8.repeatmasker.out.sor
 ```
 
 6. get GC-content
+
+extract GC-content from fasta files in 100kbp windows
 
 ```
 python fasta2GCwindow.py -i GRCm39.fasta -o GRCm39.gc_100kbp.out -w 100000 -j 100000
