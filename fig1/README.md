@@ -22,7 +22,7 @@ The following R packages are needed:
 __Note:__ A modified version of the circlize package needs to be installed, this version is able to directly use the `inverse` option with the `circos.genomicLink` function.
 
 ```
-devtools::install_github("https://github.com/kullrich/circlize", build_vignettes = FALSE, dependencies = FALSE)
+devtools::install_github("https://github.com/kullrich/circlize", build_vignettes=FALSE, dependencies=FALSE)
 ```
 
 The following genome data was used:
@@ -103,6 +103,12 @@ write.table(cds.GRCr8.genepos[,c(2,3,4)], sep="\t", col.names=FALSE, row.names=F
 ```
 
 5. get repeat density data
+
+RepeatMasker data from genomes (GRCm39 and GRCr8) are available here:
+
+edmond-link
+
+
 
 6. get GC-content
 
