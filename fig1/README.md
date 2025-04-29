@@ -37,11 +37,13 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/036/323/735/GCF_036323735.1_GRCr8/G
 
 To reproduce figure 1 do:
 
-1. get genome data
+1. get genome data and CDS data
 
 ```
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.27_GRCm39/GCF_000001635.27_GRCm39_genomic.fna.gz
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.27_GRCm39/GCF_000001635.27_GRCm39_cds_from_genomic.fna.gz
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/036/323/735/GCF_036323735.1_GRCr8/GCF_036323735.1_GRCr8_genomic.fna.gz
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/036/323/735/GCF_036323735.1_GRCr8/GCF_036323735.1_GRCr8_cds_from_genomic.fna.gz
 ```
 
 2. change chromosome names and only keep chromosomes (in R)
@@ -73,10 +75,19 @@ Rscript mashmap2circos.r -m $MASHMAP_PATH \
 -c 12
 ```
 
-4. integrate gene density, repeat density and GC-content
+4. get gene density data (in R)
+
+```
+
+```
+
+5. get repeat density data
+
+6. get GC-content
 
 ```
 python fasta2GCwindow.py -i GRCm39.fasta -o GRCm39.gc_100kbp.out -w 100000 -j 100000
 python fasta2GCwindow.py -i GRCr8.fasta -o GRCr8.gc_100kbp.out -w 100000 -j 100000
 ```
 
+7. integrate gene density, repeat density and GC-content
