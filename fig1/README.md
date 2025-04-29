@@ -111,4 +111,8 @@ python fasta2GCwindow.py -i GRCm39.fasta -o GRCm39.gc_100kbp.out -w 100000 -j 10
 python fasta2GCwindow.py -i GRCr8.fasta -o GRCr8.gc_100kbp.out -w 100000 -j 100000
 ```
 
-7. integrate gene density, repeat density and GC-content
+7. integrate gene density, repeat density and GC-content with circos plot (in R)
+
+```
+
+```
