@@ -36,9 +36,45 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/036/323/735/GCF_036323735.1_GRCr8/G
 
 To reproduce figure 1 do:
 
+1. get genome data
+
 ```
-# get genome data
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.27_GRCm39/GCF_000001635.27_GRCm39_genomic.fna.gz
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/036/323/735/GCF_036323735.1_GRCr8/GCF_036323735.1_GRCr8_genomic.fna.gz
-# run MashMap
+```
+
+2. change chromosome names and only keep chromosomes (in R)
+
+```
+library(Biostrings)
+GRCm39 <- Biostrings::readDNAStringSet("GCF_000001635.27_GRCm39_genomic.fna.gz")
+GRCm39.chromsomes <- read.table("GRCm39.chromosomes.txt")
+GRCm39 <- GRCm39[stringr::word(names(GRCm39)) %in% GRCm39.chromsomes$V1]
+names(GRCm39) <- GRCm39.chromsomes$V2[match(stringr::word(names(GRCm39)), GRCm39.chromsomes$V1)]
+Biostrings::writeXStringSet(GRCm39, file="GRCm39.fasta")
+GRCr8 <- Biostrings::readDNAStringSet("GCF_036323735.1_GRCr8_genomic.fna.gz")
+GRCr8.chromsomes <- read.table("GRCr8.chromosomes.txt")
+GRCr8 <- GRCr8[stringr::word(names(GRCr8)) %in% GRCr8.chromsomes$V1]
+names(GRCr8) <- GRCr8.chromsomes$V2[match(stringr::word(names(GRCr8)), GRCr8.chromsomes$V1)]
+Biostrings::writeXStringSet(GRCr8, file="GRCr8.fasta")
+```
+
+3. run MashMap
+
+assumes mashmap binary is set to `MASHMAP_PATH`
+
+```
+export MASHMAP_PATH=/data/opt/MashMap-3.1.3/build/bin/mashmap
+Rscript mashmap2circos.r -m $MASHMAP_PATH \
+-r GRCm39.fasta -q GRCr8.fasta \
+-cytoband GRCr8_GRCm39_cytoBand.txt \
+-s 100000 -pr GRCm39 -pq GRCr8 -rev \
+-c 12
+```
+
+4. integrate gene density, repeat density and GC-content
+
+```
+
+```
 
