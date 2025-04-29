@@ -21,7 +21,7 @@ The following R packages are needed:
 __Note:__ A modified version of the circlize package needs to be installed, this version is able to directly use the `inverse` option with the `circos.genomicLink` function.
 
 ```
-devtools::install("https://github.com/kullrich/circlize")
+devtools::install_github("https://github.com/kullrich/circlize", build_vignettes = FALSE, dependencies = FALSE)
 ```
 
 The following genome data was used:
