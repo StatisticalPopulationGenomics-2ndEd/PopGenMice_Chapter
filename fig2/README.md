@@ -9,12 +9,24 @@ The following R packages are needed:
 
 - Biostrings (https://bioconductor.org/packages/release/bioc/html/Biostrings.html)
 - DECIPHER (https://bioconductor.org/packages/release/bioc/html/DECIPHER.html)
-- 
+- MSA2dist (https://bioconductor.org/packages/release/bioc/html/MSA2dist.html)
 
 Get multiple sequence alignment of mitochondria (in R):
 
 ```
 library(Biostrings)
 library(DECIPHER)
+library(MSA2dist)
 dna <- Biostrings::readDNAStringSet("rodents_mt.fasta")
+msa <- DECIPHER::AlignSeqs(dna)
+Biostrings::writeXStringSet(msa, file="msa.fasta")
+keep.idx <- which(apply(as.matrix(msa), 2, function(x) all(x!="-")))
+msa.nogaps <- MSA2dist::subString(msa, keep.idx, keep.idx)
+Biostrings::writeXStringSet(msa.nogaps, file="msa.nogaps.fasta")
+```
+
+Model prediction with iq-tree:
+
+```
+
 ```
