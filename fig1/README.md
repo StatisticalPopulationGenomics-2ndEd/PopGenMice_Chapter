@@ -285,6 +285,6 @@ circos.trackPlotRegion(
   track.margin = c(0, 0),
   cell.padding = c(0, 0, 0, 0)
 )
-circos.genomicLink(bed1, bed2, col = plot_colors, border = NA, inverse = mashmap$strand=="-")
+circos.genomicLink(mashmap[, 1:4], mashmap[, 5:8], col=mashmap$plot_colors, border=NA, inverse = mashmap$strand=="-")
 dev.off()
 ```
