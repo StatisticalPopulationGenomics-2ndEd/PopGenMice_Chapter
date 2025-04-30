@@ -1,4 +1,4 @@
-To reproduce figure 2 you would need the following external software:
+To reproduce figure 3 you would need the following external software:
 
 - R (version 4.4.0+) (https://cran.r-project.org/)
 
