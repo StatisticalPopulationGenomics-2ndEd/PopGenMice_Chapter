@@ -1,0 +1,240 @@
+IQ-TREE 2.2.0 COVID-edition built Jun  1 2022
+
+Input file name: msa.nogaps.fasta
+Type of analysis: tree reconstruction + ultrafast bootstrap (10000 replicates)
+Random seed number: 227519
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+Since you used ultrafast bootstrap (UFBoot) please also cite: 
+
+Diep Thi Hoang, Olga Chernomor, Arndt von Haeseler, Bui Quang Minh,
+and Le Sy Vinh (2018) UFBoot2: Improving the ultrafast bootstrap
+approximation. Mol. Biol. Evol., 35:518–522.
+https://doi.org/10.1093/molbev/msx281
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 31 sequences with 15480 nucleotide sites
+Number of constant sites: 8568 (= 55.3488% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 8568 (= 55.3488% of all sites)
+Number of parsimony informative sites: 5751
+Number of distinct site patterns: 5794
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: GTR+F+I+G4
+
+Rate parameter R:
+
+  A-C: 3.1272
+  A-G: 12.2445
+  A-T: 4.3154
+  C-G: 0.5174
+  C-T: 32.1289
+  G-T: 1.0000
+
+State frequencies: (empirical counts from alignment)
+
+  pi(A) = 0.3397
+  pi(C) = 0.2449
+  pi(G) = 0.1253
+  pi(T) = 0.2901
+
+Rate matrix Q:
+
+  A   -0.5014    0.1081    0.2165    0.1768
+  C      0.15    -1.475  0.009149     1.316
+  G    0.5871   0.01789    -0.646   0.04096
+  T    0.2069     1.111   0.01768    -1.336
+
+Model of rate heterogeneity: Invar+Gamma with 4 categories
+Proportion of invariable sites: 0.4872
+Gamma shape alpha: 0.9547
+
+ Category  Relative_rate  Proportion
+  0         0              0.4872
+  1         0.2493         0.1282
+  2         0.9022         0.1282
+  3         1.934          0.1282
+  4         4.714          0.1282
+Relative rates are computed as MEAN of the portion of the Gamma distribution falling in the category.
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -148085.8874 (s.e. 1253.3044)
+Unconstrained log-likelihood (without tree): -80723.2375
+Number of free parameters (#branches + #model parameters): 69
+Akaike information criterion (AIC) score: 296309.7748
+Corrected Akaike information criterion (AICc) score: 296310.4017
+Bayesian information criterion (BIC) score: 296837.4388
+
+Total tree length (sum of branch lengths): 3.7289
+Sum of internal branch lengths: 1.2957 (34.7484% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon 'Mus_mattheyi_mtDNA' is drawn at root
+Numbers in parentheses are SH-aLRT support (%) / local bootstrap support (%) / ultrafast bootstrap support (%)
+
++--------Mus_mattheyi_mtDNA
+|
++--------Mus_minutoides_OP764675.1
+|
+|   +----------Mus_baoulei_MN964115.1
++---| (100/100/100)
+    |      +-----------------Mus_pahari_NC_036680.1
+    +------| (100/100/100)
+           |                   +--Mus_cookii_KJ530561.1
+           |             +-----| (100/100/100)
+           |             |     +--Mus_famulus_KX084803.1
+           |          +--| (98.1/94.4/96)
+           |          |  +-------Mus_cervicolor_KJ530559.1
+           |       +--| (100/100/100)
+           |       |  +-----------Mus_caroli_KJ530558.1
+           |  +----| (100/100/100)
+           |  |    |     +--------Mus_fragilicauda_KJ530563.1
+           |  |    |  +--| (99.5/98.8/99)
+           |  |    |  |  +--------Mus_terricolor_EU352649.1
+           |  |    +--| (100/100/100)
+           |  |       |            +--Mus_macedonicus_OR840781.1
+           |  |       |         +--| (100/100/100)
+           |  |       |         |  +--Mus_spicilegus_NC_085425.1
+           |  |       |      +--| (99.9/99.4/100)
+           |  |       |      |  |        +--Mus_musculus_C57BL_6J_AY172335.1
+           |  |       |      |  |     +--| (100/100/100)
+           |  |       |      |  |     |  +--Mus_musculus_domesticus_OW971635.1
+           |  |       |      |  |  +--| (94.9/91.9/92)
+           |  |       |      |  |  |  +--Mus_musculus_castaneus_OW971845.1
+           |  |       |      |  +--| (100/100/100)
+           |  |       |      |     |  +--Mus_musculus_molossinus_OW971677.1
+           |  |       |      |     +--| (100/100/100)
+           |  |       |      |        +--Mus_musculus_musculus_OW971782.1
+           |  |       +------| (100/100/100)
+           |  |              +-----Mus_spretus_OW971698.1
+           +--| (96.1/92/94)
+              |                              +----Mastomys_coucha_MF062946.1
+              |                 +------------| (100/100/100)
+              |                 |            +-----Mastomys_natalensis_MG017593.1
+              |       +---------| (100/100/100)
+              |       |         +----------------Hylomyscus_alleni_MZ131547.1
+              +-------| (100/100/100)
+                      |           +---------------------Arvicanthis_niloticus_CM022273.1
+                      |     +-----| (100/100/100)
+                      |     |     +-----------------------Grammomys_surdaster_MN807579.1
+                      |  +--| (92.4/90.9/69)
+                      |  |  |                  +------Rattus_norvegicus_AY172581.1
+                      |  |  |    +-------------| (100/100/100)
+                      |  |  |    |             +--------Rattus_rattus_EU273707.1
+                      |  |  +----| (100/100/100)
+                      |  |       +----------------------------Micromys_minutus_OZ004814.1
+                      +--| (84.5/84.2/66)
+                         |                        +-------Tokudaia_osimensis_LC642727.1
+                         |  +---------------------| (100/100/100)
+                         |  |                     +------Tokudaia_tokunoshimensis_LC778284.1
+                         +--| (99.9/100/100)
+                            |               +-------Apodemus_sylvaticus_NC_049122.1
+                            |   +-----------| (100/100/100)
+                            |   |           +-----------Apodemus_uralensis_mtDNA
+                            +---| (100/100/100)
+                                +-----------------Apodemus_agrarius_NC_016428.1
+
+Tree in newick format:
+
+(Mus_mattheyi_mtDNA:0.0827775453,Mus_minutoides_OP764675.1:0.0839460238,(Mus_baoulei_MN964115.1:0.0935223012,(Mus_pahari_NC_036680.1:0.1518913275,(((((Mus_cookii_KJ530561.1:0.0157110061,Mus_famulus_KX084803.1:0.0329001952)100/100/100:0.0508232764,Mus_cervicolor_KJ530559.1:0.0748798471)98.1/94.4/96:0.0129862814,Mus_caroli_KJ530558.1:0.1024553474)100/100/100:0.0275230472,((Mus_fragilicauda_KJ530563.1:0.0803648091,Mus_terricolor_EU352649.1:0.0762664238)99.5/98.8/99:0.0118852006,(((Mus_macedonicus_OR840781.1:0.0311545351,Mus_spicilegus_NC_085425.1:0.0321473260)100/100/100:0.0128678456,(((Mus_musculus_C57BL_6J_AY172335.1:0.0002531530,Mus_musculus_domesticus_OW971635.1:0.0004278432)100/100/100:0.0128593748,Mus_musculus_castaneus_OW971845.1:0.0130133779)94.9/91.9/92:0.0025870419,(Mus_musculus_molossinus_OW971677.1:0.0013915034,Mus_musculus_musculus_OW971782.1:0.0014174235)100/100/100:0.0101401912)100/100/100:0.0247911121)99.9/99.4/100:0.0107374917,Mus_spretus_OW971698.1:0.0506184386)100/100/100:0.0592791087)100/100/100:0.0201429665)100/100/100:0.0420723385,(((Mastomys_coucha_MF062946.1:0.0473065359,Mastomys_natalensis_MG017593.1:0.0581535933)100/100/100:0.1133489316,Hylomyscus_alleni_MZ131547.1:0.1485071141)100/100/100:0.0875395438,(((Arvicanthis_niloticus_CM022273.1:0.1915493028,Grammomys_surdaster_MN807579.1:0.2028495739)100/100/100:0.0537152437,((Rattus_norvegicus_AY172581.1:0.0663387863,Rattus_rattus_EU273707.1:0.0813513628)100/100/100:0.1248919925,Micromys_minutus_OZ004814.1:0.2467293798)100/100/100:0.0436355474)92.4/90.9/69:0.0115026851,((Tokudaia_osimensis_LC642727.1:0.0712736223,Tokudaia_tokunoshimensis_LC778284.1:0.0616820429)100/100/100:0.1863796482,((Apodemus_sylvaticus_NC_049122.1:0.0720678618,Apodemus_uralensis_mtDNA:0.1046245330)100/100/100:0.1036249316,Apodemus_agrarius_NC_016428.1:0.1555899067)100/100/100:0.0405434203)99.9/100/100:0.0291898790)84.5/84.2/66:0.0123605280)100/100/100:0.0724755020)96.1/92/94:0.0198285921)100/100/100:0.0622519463)100/100/100:0.0357463874);
+
+CONSENSUS TREE
+--------------
+
+Consensus tree is constructed from 10000 bootstrap trees
+Log-likelihood of consensus tree: -148085.887137
+Robinson-Foulds distance between ML tree and consensus tree: 0
+
+Branches with support >0.000000% are kept (extended consensus)
+Branch lengths are optimized by maximum likelihood on original alignment
+Numbers in parentheses are bootstrap supports (%)
+
++--------Mus_mattheyi_mtDNA
+|
++--------Mus_minutoides_OP764675.1
+|
+|   +----------Mus_baoulei_MN964115.1
++---| (100)
+    |      +-----------------Mus_pahari_NC_036680.1
+    +------| (100)
+           |                   +--Mus_cookii_KJ530561.1
+           |             +-----| (100)
+           |             |     +--Mus_famulus_KX084803.1
+           |          +--| (96)
+           |          |  +-------Mus_cervicolor_KJ530559.1
+           |       +--| (100)
+           |       |  +-----------Mus_caroli_KJ530558.1
+           |  +----| (100)
+           |  |    |     +--------Mus_fragilicauda_KJ530563.1
+           |  |    |  +--| (99)
+           |  |    |  |  +--------Mus_terricolor_EU352649.1
+           |  |    +--| (100)
+           |  |       |            +--Mus_macedonicus_OR840781.1
+           |  |       |         +--| (100)
+           |  |       |         |  +--Mus_spicilegus_NC_085425.1
+           |  |       |      +--| (100)
+           |  |       |      |  |        +--Mus_musculus_C57BL_6J_AY172335.1
+           |  |       |      |  |     +--| (100)
+           |  |       |      |  |     |  +--Mus_musculus_domesticus_OW971635.1
+           |  |       |      |  |  +--| (92)
+           |  |       |      |  |  |  +--Mus_musculus_castaneus_OW971845.1
+           |  |       |      |  +--| (100)
+           |  |       |      |     |  +--Mus_musculus_molossinus_OW971677.1
+           |  |       |      |     +--| (100)
+           |  |       |      |        +--Mus_musculus_musculus_OW971782.1
+           |  |       +------| (100)
+           |  |              +-----Mus_spretus_OW971698.1
+           +--| (94)
+              |                              +----Mastomys_coucha_MF062946.1
+              |                 +------------| (100)
+              |                 |            +-----Mastomys_natalensis_MG017593.1
+              |       +---------| (100)
+              |       |         +----------------Hylomyscus_alleni_MZ131547.1
+              +-------| (100)
+                      |           +---------------------Arvicanthis_niloticus_CM022273.1
+                      |     +-----| (100)
+                      |     |     +-----------------------Grammomys_surdaster_MN807579.1
+                      |  +--| (69)
+                      |  |  |                  +------Rattus_norvegicus_AY172581.1
+                      |  |  |    +-------------| (100)
+                      |  |  |    |             +--------Rattus_rattus_EU273707.1
+                      |  |  +----| (100)
+                      |  |       +----------------------------Micromys_minutus_OZ004814.1
+                      +--| (66)
+                         |                        +-------Tokudaia_osimensis_LC642727.1
+                         |  +---------------------| (100)
+                         |  |                     +------Tokudaia_tokunoshimensis_LC778284.1
+                         +--| (100)
+                            |               +-------Apodemus_sylvaticus_NC_049122.1
+                            |   +-----------| (100)
+                            |   |           +-----------Apodemus_uralensis_mtDNA
+                            +---| (100)
+                                +-----------------Apodemus_agrarius_NC_016428.1
+
+
+Consensus tree in newick format: 
+
+(Mus_mattheyi_mtDNA:0.0827904511,Mus_minutoides_OP764675.1:0.0839590386,(Mus_baoulei_MN964115.1:0.0935371439,(Mus_pahari_NC_036680.1:0.1519160353,(((((Mus_cookii_KJ530561.1:0.0157138592,Mus_famulus_KX084803.1:0.0329044726)100:0.0508307101,Mus_cervicolor_KJ530559.1:0.0748917613)96:0.0129885466,Mus_caroli_KJ530558.1:0.1024715817)100:0.0275274583,((Mus_fragilicauda_KJ530563.1:0.0803768373,Mus_terricolor_EU352649.1:0.0762778024)99:0.0118870433,(((Mus_macedonicus_OR840781.1:0.0311589117,Mus_spicilegus_NC_085425.1:0.0321515577)100:0.0128696530,(((Mus_musculus_C57BL_6J_AY172335.1:0.0002538086,Mus_musculus_domesticus_OW971635.1:0.0004276176)100:0.0128610002,Mus_musculus_castaneus_OW971845.1:0.0130149331)92:0.0025867595,(Mus_musculus_molossinus_OW971677.1:0.0013911443,Mus_musculus_musculus_OW971782.1:0.0014173047)100:0.0101417373)100:0.0247948718)100:0.0107397985,Mus_spretus_OW971698.1:0.0506250591)100:0.0592882395)100:0.0201459460)100:0.0420775706,(((Mastomys_coucha_MF062946.1:0.0473148595,Mastomys_natalensis_MG017593.1:0.0581611505)100:0.1133666605,Hylomyscus_alleni_MZ131547.1:0.1485289502)100:0.0875511704,(((Arvicanthis_niloticus_CM022273.1:0.1915865159,Grammomys_surdaster_MN807579.1:0.2028898489)100:0.0537184014,((Rattus_norvegicus_AY172581.1:0.0663295401,Rattus_rattus_EU273707.1:0.0813817948)100:0.1249167300,Micromys_minutus_OZ004814.1:0.2467755069)100:0.0436365546)69:0.0115010689,((Tokudaia_osimensis_LC642727.1:0.0712772317,Tokudaia_tokunoshimensis_LC778284.1:0.0616871820)100:0.1863919659,((Apodemus_sylvaticus_NC_049122.1:0.0720549215,Apodemus_uralensis_mtDNA:0.1046475679)100:0.1036362618,Apodemus_agrarius_NC_016428.1:0.1556003341)100:0.0405454585)100:0.0291911112)66:0.0123613955)100:0.0724838445)94:0.0198315968)100:0.0622623056)100:0.0357515835);
+
+TIME STAMP
+----------
+
+Date and time: Mon Mar  3 09:31:40 2025
+Total CPU time used: 1863.397061 seconds (0h:31m:3s)
+Total wall-clock time used: 46.90592742 seconds (0h:0m:46s)
+
