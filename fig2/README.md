@@ -15,7 +15,7 @@ The following R packages are needed:
 
 The following data was used:
 
-| species | genomeID | mtID | nucID |
+| species | genomeID | mt_nucID | assemblyID |
 | ------- | ----- | ----- | ------ |
 | Apodemus agrarius | APOAGR | NC 016428.1 | GCA_964023405.1 |
 | Apodemus sylvaticus | APOSYL | NC 049122.1 | GCF_947179515.1 |
