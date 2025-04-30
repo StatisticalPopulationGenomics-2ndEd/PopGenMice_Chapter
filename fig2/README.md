@@ -10,11 +10,12 @@ The following R packages are needed:
 - Biostrings (https://bioconductor.org/packages/release/bioc/html/Biostrings.html)
 - DECIPHER (https://bioconductor.org/packages/release/bioc/html/DECIPHER.html)
 - MSA2dist (https://bioconductor.org/packages/release/bioc/html/MSA2dist.html)
+- DEEPSPACE (https://github.com/jtlovell/DEEPSPACE)
 
 The following data was used:
 
-| species | nucID |
-| ------- | ----- |
+| species | alias | nucID | genome |
+| ------- | ----- | ----- | ------ |
 | Apodemus agrarius | NC 016428.1 |
 | Apodemus sylvaticus | NC 049122.1 |
 | Apodemus uralensis | personal communication |
@@ -67,4 +68,8 @@ Model prediction with iq-tree:
 iqtree2 -s msa.nogaps.fasta -m TEST_ONLY -nt 48
 iqtree2 -s msa.nogaps.fasta -m GTR+F+I+G4 -nt 48 -redo -B 10000 -alrt 1000 -lbp 1000
 ```
+
+To construct riparian plots of whole genomes, the `DEEPSPACE` R package was used (https://github.com/jtlovell/DEEPSPACE).
+
+The following genome data was used:
 
