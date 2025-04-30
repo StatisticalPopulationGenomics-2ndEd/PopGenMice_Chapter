@@ -43,7 +43,7 @@ The following data was used:
 | Mus pahari | MUSPAH | NC 036680.1 | CF_900095145.1 |
 | Mus spicilegus | MUSSPI | NC 085425.1 | GCA_003336285.2 |
 | Mus spretus | MUSSPR | OW971698.1 | GCA_921997135.2 |
-| Mus terricolor | - EU352649.1 | - |
+| Mus terricolor | - | EU352649.1 | - |
 | Rattus norvegicus | RATNOR | AY172581.1 | GCF_036323735.1 |
 | Rattus rattus | RATRAT | EU273707.1 | GCF_011064425.1 |
 | Tokudaia osimensis | - | LC642727.1 | - |
