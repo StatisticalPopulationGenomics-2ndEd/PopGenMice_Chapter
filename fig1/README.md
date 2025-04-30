@@ -288,3 +288,5 @@ circos.trackPlotRegion(
 circos.genomicLink(mashmap[, 1:4], mashmap[, 5:8], col=mashmap$plot_colors, border=NA, inverse = mashmap$strand=="-")
 dev.off()
 ```
+
+![GRCm39 vs. GRCr8 circos plot](GRCm39_GRCr8_circos.png)
