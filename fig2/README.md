@@ -47,7 +47,7 @@ The following data was used:
 | Rattus norvegicus | RATNOR | AY172581.1 | GCF_036323735.1 |
 | Rattus rattus | RATRAT | EU273707.1 | GCF_011064425.1 |
 | Tokudaia osimensis | - | LC642727.1 | - |
-| Tokudaia tokunoshimensis | LC778284.1 | GCA_036184795.1 |
+| Tokudaia tokunoshimensis | TOKTOK | LC778284.1 | GCA_036184795.1 |
 
 All related input files (e.g. `FASTA` files reduced to only chromosomes) can be found here:
 
