@@ -132,6 +132,31 @@ sort -k1,1 -k4,4n -k5,5n GRCr8.repeatmasker.out.gff > GRCr8.repeatmasker.out.sor
 /opt/bedtools2/bin/bedtools intersect -a GRCr8.100kbp.bins.txt -b GRCr8.repeatmasker.out.sorted.gff.merged -wo > GRCr8.repeatmasker.w100kbp.repeats
 ```
 
+get repeat fraction (in R)
+
+```
+options(scipen=22)
+#GRCm39
+GRCm39.repeats <- read.table("GRCm39.repeatmasker.w100kbp.repeats")
+tmp <- GRCm39.repeats
+tmp.df<-as.data.frame(tmp)
+GRCm39.repeats.df<-as.data.frame(GRCm39.repeats)
+GRCm39.repeats<-dplyr::group_by(GRCm39.repeats.df, V1, V2, V3) %>% summarise(SUM=sum(V7))
+GRCm39.repeats<-GRCm39.repeats[,c("V1","V2","V3","SUM")]
+GRCm39.repeats$SUM<-GRCm39.repeats$SUM/(GRCm39.repeats$V3-GRCm39.repeats$V2)
+colnames(GRCm39.repeats)<-c("seq","s","e","repeat_fraction")
+write.table(GRCm39.repeats, sep="\t", col.names=TRUE, row.names=FALSE, quote=FALSE, file="GRCm39.repeatmasker.w100kbp.repeats.fraction.tsv")
+
+#GRCr8
+GRCr8.repeats <- read.table("GRCr8.repeatmasker.w100kbp.repeats")
+GRCr8.repeats.df<-as.data.frame(GRCr8.repeats)
+GRCr8.repeats<-dplyr::group_by(GRCr8.repeats.df, V1, V2, V3) %>% summarise(SUM=sum(V7))
+GRCr8.repeats<-GRCr8.repeats[,c("V1","V2","V3","SUM")]
+GRCr8.repeats$SUM<-GRCr8.repeats$SUM/(GRCr8.repeats$V3-GRCr8.repeats$V2)
+colnames(GRCr8.repeats)<-c("seq","s","e","repeat_fraction")
+write.table(GRCr8.repeats, sep="\t", col.names=TRUE, row.names=FALSE, quote=FALSE, file="GRCr8.repeatmasker.w100kbp.repeats.fraction.tsv")
+```
+
 6. get GC-content
 
 extract GC-content from fasta files in 100kbp windows
@@ -144,5 +169,44 @@ python fasta2GCwindow.py -i GRCr8.fasta -o GRCr8.gc_100kbp.out -w 100000 -j 1000
 7. integrate gene density, repeat density and GC-content with circos plot (in R)
 
 ```
+options(scipen=22)
+#load mashmap output and cytoband
+mashmap <- read.table("mashmap.circos.mashmap.bed", sep="\t", header=TRUE, na.strings="", comment.char="")
+genome.df <- read.table("GRCr8_GRCm39_cytoBand.txt")
+colnames(genome.df) <- c("name", "start", "end", "bandname", "stain")
+
+#load GC-content
+gc_col_fun <- colorRamp2(c(0.25, 0.5, 0.75), c("#e6f972", "#a0d294ff", "#38acaf"))
+GRCm39_gc <- read.table("GRCm39.gc_100kbp.out", header=TRUE)
+GRCm39_gc$seq <- paste0("GRCm39:",GRCm39_gc$seq)
+GRCr8_gc <- read.table("GRCr8.gc_100kbp.out", header=TRUE)
+GRCr8_gc$seq <- paste0("GRCr8:",GRCr8_gc$seq)
+gc <- rbind(GRCm39_gc, GRCr8_gc)
+gc <- gc[gc$seq %in% genome.df$name, ]
+gc <- gc[gc$n!=1, ]
+
+#load gene density
+gene_col_fun <- colorRamp2(c(0, 0.1, 1), c("#f7f7f7", "#92c5de", "#0571b0"))
+normalize_min_max <- function(x) {return((x - min(x, na.rm = TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE)))}
+GRCm39_gd <- read.table("GRCm39.primary_cds.w100kbp.bed")
+GRCm39_gd$min_max <- normalize_min_max(GRCm39_gd$V4)
+GRCr8_gd <- read.table("GRCr8.primary_cds.w100kbp.bed")
+GRCr8_gd$min_max <- normalize_min_max(GRCr8_gd$V4)
+gene_content <- rbind(GRCm39_gd, GRCr8_gd )
+colnames(gene_content) <- c("seq", "s", "e", "gene_count", "min_max")
+gene_content <- gene_content[gene_content$seq %in% genome.df$name, ]
+gene_content <- gene_content %>%
+  group_by(seq) %>%
+  mutate(min_max = normalize_min_max(gene_count)) %>%
+  ungroup()
+
+#load repeat density
+repeats_col_fun <- colorRamp2(c(0, 0.5, 1), c("#fef6b5", "#f4a99cff", "#e15383"))
+
+
+
+
+
+#create plot
 
 ```
