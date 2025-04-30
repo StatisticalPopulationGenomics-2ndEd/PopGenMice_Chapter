@@ -14,6 +14,7 @@ The following R packages are needed:
 The following data was used:
 
 | species | nucID |
+-------------------
 | Apodemus agrarius | NC 016428.1 |
 | Apodemus sylvaticus | NC 049122.1 |
 | Apodemus uralensis | personal communication |
