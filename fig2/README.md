@@ -7,11 +7,14 @@ To reproduce figure 2 you would need the following external software:
 
 The following R packages are needed:
 
-- Biostrings()
-- DECIPHER ()
+- Biostrings (https://bioconductor.org/packages/release/bioc/html/Biostrings.html)
+- DECIPHER (https://bioconductor.org/packages/release/bioc/html/DECIPHER.html)
+- 
 
 Get multiple sequence alignment of mitochondria (in R):
 
 ```
-
+library(Biostrings)
+library(DECIPHER)
+dna <- Biostrings::readDNAStringSet("rodents_mt.fasta")
 ```
