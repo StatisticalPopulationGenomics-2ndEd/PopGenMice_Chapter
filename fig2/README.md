@@ -114,3 +114,5 @@ riparian_paf(
   refGenome=rodents$refGenome,
   genomeIDs=rodents$genomeIDs)
 ```
+
+![rodent - murinae synteny map](riparian_phasedByGRCm39.png)
