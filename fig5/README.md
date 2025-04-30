@@ -12,7 +12,7 @@ To reproduce figure 5 you would need the following external software:
 - bedGraphToBigWig (https://hgdownload.soe.ucsc.edu/admin/exe/)
 - jbrowse (https://jbrowse.org/jb2/)
 
-Run vcftools to extract window based statistics and combine them into bed and bigwig file to be visualised in jbrowse:
+Run vcftools to extract window based statistics and combine them into bed and bigwig file to be visualized in jbrowse:
 
 ```
 vcftools --gzvcf popGER.chr1.DP5.GQ30.SnpGap3.IndelGap5.vcf.gz --out popGER_pi_10kbp.chr1 --window-pi 10000
