@@ -202,11 +202,89 @@ gene_content <- gene_content %>%
 
 #load repeat density
 repeats_col_fun <- colorRamp2(c(0, 0.5, 1), c("#fef6b5", "#f4a99cff", "#e15383"))
-
-
-
-
+GRCm39_repeats <- read.table("GRCm39.repeatmasker.w100kbp.repeats.fraction.tsv", header=TRUE)
+GRCr8_repeats <- read.table("GRCr8.repeatmasker.w100kbp.repeats.fraction.tsv", header=TRUE)
+repeats <- rbind(GRCm39_repeats, GRCr8_repeats)
+repeats <- repeats[repeats$seq %in% genome.df$name, ]
 
 #create plot
+library(circlize)
 
+png("GRCm39_GRCr8_circos.png", width=2400, height=2400, res=300)
+circos.par(track.margin = c(0.01, 0.01))
+circos.initializeWithIdeogram(genome.df, labels.cex=CEX, sort.chr=FALSE)
+circos.track(ylim = c(0, 1), track.height = mm_h(1), bg.border = NA, cell.padding = c(0, 0, 0, 0))
+highlight.chromosome(genome.df$name[grep("GRCm39",genome.df$name)], col="black", track.index=3)
+highlight.chromosome(genome.df$name[grep("GRCr8",genome.df$name)], col="brown4", track.index=3)
+circos.trackPlotRegion(
+  factors = gene_content$seq,  # Chromosomes
+  x = gene_content$s,  # Start positions
+  ylim = c(0, 1),  # GC values range from 0 to 1
+  panel.fun = function(x, y) {
+    chr = CELL_META$sector.index
+    idx = gene_content$seq == chr  # Filter data for current chromosome
+    
+    # Draw heatmap bars
+    circos.rect(
+      xleft = gene_content$s[idx], 
+      xright = gene_content$e[idx], 
+      ybottom = 0, 
+      ytop = 1, 
+      col = gene_col_fun(gene_content$min_max[idx]), 
+      border = NA  # Remove border for a smooth heatmap
+    )
+  },
+  track.height = mm_h(2),  # Adjust height
+  bg.border = NA,  # Remove track border
+  track.margin = c(0, 0),
+  cell.padding = c(0, 0, 0, 0)
+)
+circos.trackPlotRegion(
+  factors = repeats$seq,  # Chromosomes
+  x = repeats$s,  # Start positions
+  ylim = c(0, 1),  # GC values range from 0 to 1
+  panel.fun = function(x, y) {
+    chr = CELL_META$sector.index
+    idx = repeats$seq == chr  # Filter data for current chromosome
+    
+    # Draw heatmap bars
+    circos.rect(
+      xleft = repeats$s[idx], 
+      xright = repeats$e[idx], 
+      ybottom = 0, 
+      ytop = 1, 
+      col = repeats_col_fun(repeats$repeat_fraction[idx]), 
+      border = NA  # Remove border for a smooth heatmap
+    )
+  },
+  track.height = mm_h(2),  # Adjust height
+  bg.border = NA,  # Remove track border
+  track.margin = c(0, 0),
+  cell.padding = c(0, 0, 0, 0)
+)
+circos.trackPlotRegion(
+  factors = gc$seq,  # Chromosomes
+  x = gc$s,  # Start positions
+  ylim = c(0, 1),  # GC values range from 0 to 1
+  panel.fun = function(x, y) {
+    chr = CELL_META$sector.index
+    idx = gc$seq == chr  # Filter data for current chromosome
+    
+    # Draw heatmap bars
+    circos.rect(
+      xleft = gc$s[idx], 
+      xright = gc$e[idx], 
+      ybottom = 0, 
+      ytop = 1, 
+      col = gc_col_fun(gc$gc[idx]), 
+      border = NA  # Remove border for a smooth heatmap
+    )
+  },
+  track.height = mm_h(2),  # Adjust height
+  bg.border = NA,  # Remove track border
+  track.margin = c(0, 0),
+  cell.padding = c(0, 0, 0, 0)
+)
+circos.genomicLink(bed1, bed2, col = plot_colors, border = NA, inverse = mashmap$strand=="-")
+dev.off()
 ```
