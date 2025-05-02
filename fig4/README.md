@@ -91,3 +91,10 @@ Foe each population the final `msmc2` input was created using the individual fil
 ```
 /opt/msmc2/msmc2_Linux -t 24 -p 1*4+25*2+1*4+1*6 -I 0-1,2-3,4-5,6-7,8-9,10-11,12-13,14-15 -o popGER.msmc2 input_msmc2.popGER.chr1.txt input_msmc2.popGER.chr2.txt input_msmc2.popGER.chr3.txt input_msmc2.popGER.chr4.txt input_msmc2.popGER.chr5.txt input_msmc2.popGER.chr6.txt input_msmc2.popGER.chr7.txt input_msmc2.popGER.chr8.txt input_msmc2.popGER.chr9.txt input_msmc2.popGER.chr10.txt input_msmc2.popGER.chr11.txt input_msmc2.popGER.chr12.txt input_msmc2.popGER.chr13.txt input_msmc2.popGER.chr14.txt input_msmc2.popGER.chr15.txt input_msmc2.popGER.chr16.txt input_msmc2.popGER.chr17.txt input_msmc2.popGER.chr18.txt input_msmc2.popGER.chr19.txt
 ```
+
+`msmc2` results can be plotted in R as follows:
+
+```
+options(scipen=22)
+
+```
