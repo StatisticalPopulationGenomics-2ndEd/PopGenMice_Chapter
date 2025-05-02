@@ -95,6 +95,42 @@ Foe each population the final `msmc2` input was created using the individual fil
 `msmc2` results can be plotted in R as follows:
 
 ```
+png("house_mouse_DOM_population_history.png", width=800, height=480)
 options(scipen=22)
-
+mu <- 6e-9
+gen <- 1.5
+popGER<-read.table("popGER/popGER.msmc2.final.txt", header=TRUE)
+popFRA1<-read.table("popFRA1/popFRA1.msmc2.final.txt", header=TRUE)
+popHEL<-read.table("popHEL/popHEL.msmc2.final.txt", header=TRUE)
+popGOU<-read.table("popGOU/popGOU.msmc2.final.txt", header=TRUE)
+popIRA<-read.table("popIRA/popIRA.msmc2.final.txt", header=TRUE)
+Dat <- popGER
+plot(x=Dat$left_time_boundary/mu*gen,
+  y=(1/Dat$lambda)/(2*mu),
+  log="xy",
+  ylim=c(100,1000000),
+  xlim=c(50,1000000),
+  type="n",
+  xlab="Years ago (gen per year = 1.5, mu = 6e-9)",
+  ylab="effective population size",
+  las=2)
+abline(h=seq(from=1000,to=10000,by=1000), col="lightgrey", lwd=0.5)
+abline(h=seq(from=10000,to=100000,by=10000), col="lightgrey", lwd=0.5)
+abline(h=seq(from=100000,to=1000000,by=100000), col="lightgrey", lwd=0.5)
+abline(v=seq(from=100,to=1000,by=100), col="lightgrey", lwd=0.5)
+abline(v=seq(from=1000,to=10000,by=1000), col="lightgrey", lwd=0.5)
+abline(v=seq(from=10000,to=100000,by=10000), col="lightgrey", lwd=0.5)
+abline(v=seq(from=100000,to=1000000,by=100000), col="lightgrey", lwd=0.5)
+popCol <- c("#92c5de", "#d1e5f0", "#cab2d6", "#6a3d9a", "#4393c3")
+lines(popGER$left_time_boundary/mu*gen, (1/popGER$lambda)/(2*mu), type="s", col=popCol[1], lty=1, lwd=3)
+lines(popFRA1$left_time_boundary/mu*gen, (1/popFRA1$lambda)/(2*mu), type="s", col=popCol[2], lty=1, lwd=3)
+lines(popHEL$left_time_boundary/mu*gen, (1/popHEL$lambda)/(2*mu), type="s", col=popCol[3], lty=1, lwd=3)
+lines(popGOU$left_time_boundary/mu*gen, (1/popGOU$lambda)/(2*mu), type="s", col=popCol[4], lty=1, lwd=3)
+lines(popIRA$left_time_boundary/mu*gen, (1/popIRA$lambda)/(2*mu), type="s", col=popCol[5], lty=1, lwd=3)
+legend("bottomright", legend=c("GER (DOM)", "FRA1 (DOM)", "HEL (DOM/HEL)", "GOU (DOM/GOU)", "IRA (DOM)"),
+  col=c(popCol[1], popCol[2], popCol[3], popCol[4], popCol[5]),
+  lwd=c(3,3,3,3,3), cex=0.5)
+dev.off()
 ```
+
+![msmc2 results for DOM population](house_mouse_DOM_population_history.png)
