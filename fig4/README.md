@@ -4,7 +4,7 @@ All related input files can be found here:
 
 edmond-link here
 
-The scripts used to map individual `FASTQ` files against the reference `GRCm39`, to apply base quality score recalibration and call SNPs can be found in the `mm39_mapping` directory.
+The scripts used to map individual `FASTQ` files against the reference `GRCm39`, to apply base quality score recalibration and call SNPs can be found in the [`mm39_mapping`](mm39_mapping/README.md) directory.
 
 To reproduce figure 4 you would need the following external software:
 
@@ -23,10 +23,15 @@ python vcfAllSiteParser.py GER.7.autosomes.g.vcf.gz GER.7
 python vcfAllSiteParser.py GER.8.autosomes.g.vcf.gz GER.8
 ```
 
-As a negative mask for each chromosome, the `RepeatMasker` resuluts from the reference `GRCm39` as indicated in the directory `fig1` was used
+As a negative mask for each chromosome, the `RepeatMasker` resuluts from the reference `GRCm39` as indicated in the directory `fig1` was used.
+
+
 
 msmc2 was run with the following settings for each individual:
 
+```
+
+```
 
 msmc2 was run with the following settings for each population (setting the corresponding number of individuals):
 ```
