@@ -23,7 +23,7 @@ python vcfAllSiteParser.py GER.7.autosomes.g.vcf.gz GER.7
 python vcfAllSiteParser.py GER.8.autosomes.g.vcf.gz GER.8
 ```
 
-As a negative mask, the `RepeatMasker` resuluts from the reference `GRCm39` as indicated in the directory 
+As a negative mask for each chromosome, the `RepeatMasker` resuluts from the reference `GRCm39` as indicated in the directory `fig1` was used
 
 msmc2 was run with the following settings for each individual:
 
