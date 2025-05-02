@@ -14,7 +14,7 @@ fig2 : mito Tree + rodent genome synteny plots
 
 fig3 : species abundance
 
-fig4 : msmc2
+fig4 : msmc2 - house mouse individuals and population
 
 fig5 : pop statistics
 
