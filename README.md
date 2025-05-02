@@ -18,4 +18,4 @@ Each subdirectory might contain an individual `README.md` file and subsequent re
 
 [fig5 : pop statistics](fig5/README.md)
 
-[mm39_mapping : mapping + SNP calling (GRCm39)](mm3_mapping/README.md)
+[mm39_mapping : mapping + SNP calling (GRCm39)](mm39_mapping/README.md)
