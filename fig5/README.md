@@ -57,7 +57,9 @@ awk '{print $1,$2,$3,$5}' popGER_pi_10kbp.chr18.windowed.pi >> popGER_pi_10kbp.w
 awk '{print $1,$2,$3,$5}' popGER_pi_10kbp.chr19.windowed.pi >> popGER_pi_10kbp.windowed.pi.bed
 awk '{print $1,$2,$3,$5}' popGER_pi_10kbp.chrX.windowed.pi >> popGER_pi_10kbp.windowed.pi.bed
 
-bedGraphToBigWig popGER_pi_10kbp.windowed.pi.bed GRCm39.primary_assembly.genome.fa.fai.sizes popGER_pi_10kbp.windowed.pi.bed.bw
+awk '{if($1!="CHROM") print $0}' popGER_pi_10kbp.windowed.pi.bed > popGER_pi_10kbp.windowed.pi.bed.no_header
+
+bedGraphToBigWig popGER_pi_10kbp.windowed.pi.bed.no_header GRCm39.primary_assembly.genome.fa.fai.sizes popGER_pi_10kbp.windowed.pi.bed.bw
 
 vcftools --gzvcf popGER.chr1.DP5.GQ30.SnpGap3.IndelGap5.vcf.gz --out popGER_TajD_10kbp.chr1 --TajimaD 10000
 vcftools --gzvcf popGER.chr2.DP5.GQ30.SnpGap3.IndelGap5.vcf.gz --out popGER_TajD_10kbp.chr2 --TajimaD 10000
