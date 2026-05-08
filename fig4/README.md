@@ -13,14 +13,14 @@ To reproduce figure 4 you would need the following external software:
 To prepare input files for msmc2 the script `vcfAllSiteParser2.py` was used, it takes combined autosomes `GVCF` files as input and produces for each chromosome one `VCF` and one `mask` file to be used with the `generate_multihetsep.py` script from `msmc2`:
 
 ```
-python vcfAllSiteParser.py GER.1.autosomes.g.vcf.gz GER.1
-python vcfAllSiteParser.py GER.2.autosomes.g.vcf.gz GER.2
-python vcfAllSiteParser.py GER.3.autosomes.g.vcf.gz GER.3
-python vcfAllSiteParser.py GER.4.autosomes.g.vcf.gz GER.4
-python vcfAllSiteParser.py GER.5.autosomes.g.vcf.gz GER.5
-python vcfAllSiteParser.py GER.6.autosomes.g.vcf.gz GER.6
-python vcfAllSiteParser.py GER.7.autosomes.g.vcf.gz GER.7
-python vcfAllSiteParser.py GER.8.autosomes.g.vcf.gz GER.8
+python vcfAllSiteParser2.py GER.1.autosomes.g.vcf.gz GER.1
+python vcfAllSiteParser2.py GER.2.autosomes.g.vcf.gz GER.2
+python vcfAllSiteParser2.py GER.3.autosomes.g.vcf.gz GER.3
+python vcfAllSiteParser2.py GER.4.autosomes.g.vcf.gz GER.4
+python vcfAllSiteParser2.py GER.5.autosomes.g.vcf.gz GER.5
+python vcfAllSiteParser2.py GER.6.autosomes.g.vcf.gz GER.6
+python vcfAllSiteParser2.py GER.7.autosomes.g.vcf.gz GER.7
+python vcfAllSiteParser2.py GER.8.autosomes.g.vcf.gz GER.8
 ```
 
 As a negative mask for each chromosome, the `RepeatMasker` resuluts from the reference `GRCm39` as indicated in the directory `fig1` was used to mask repeats.
