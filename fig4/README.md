@@ -8,7 +8,7 @@ The scripts used to map individual `FASTQ` files against the reference `GRCm39`,
 
 To reproduce figure 4 you would need the following external software:
 
-- msmc2 (version ) (https://vcftools.github.io/index.html)
+- msmc2 (version 2.1.4) (https://github.com/stschiff/msmc2)
 
 To prepare input files for msmc2 the script `vcfAllSiteParser2.py` was used, it takes combined autosomes `GVCF` files as input and produces for each chromosome one `VCF` and one `mask` file to be used with the `generate_multihetsep.py` script from `msmc2`:
 
